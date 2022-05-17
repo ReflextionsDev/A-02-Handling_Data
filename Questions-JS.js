@@ -29,6 +29,14 @@ const userData = [
 // Each object should have the id of the user and the amount of favorite foods they have.
 // example: [{id: '111', favoriteFoods: 2}]
 
+const mappedData = userData.map(obj => {
+  const newObj = {}
+  newObj.id = obj.id
+  newObj.favoriteFoods = obj.favorites.food.length
+  return newObj
+})
+
+console.log(mappedData)
 
 ////////////////////
 // EXTRA CREDIT:
@@ -38,5 +46,30 @@ const userData = [
 // of the people who have pizza as one of their favorite foods.
 // example: ['Peter', 'Mary']
 
+const reducedData = userData.reduce((returnArr, currentObj) => {
+
+  if (currentObj.favorites.food.includes('pizza')) {
+    returnArr.push(currentObj.name)
+  }
+
+  return returnArr
+
+}, [])
+
+console.log(reducedData)
+
 
 // 7. Show us an example of a switch statement being used
+
+let x = 'b'
+
+switch (x) {
+  case 'a':
+    console.log("Alpha")
+    break;
+  case 'b':
+    console.log("Beta")
+    break;
+  default:
+    break;
+}
